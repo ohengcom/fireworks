@@ -2046,7 +2046,7 @@ const soundManager = {
 // Kick things off.
 
 function setLoadingStatus(status) {
-  document.querySelector('.loading-init__status').textContent = status
+  document.querySelector('.loading-init__status').innerHTML = status
 }
 
 // CodePen profile header doesn't need audio, just initialize.
@@ -2054,7 +2054,7 @@ if (IS_HEADER) {
   init()
 } else {
   // Allow status to render, then preload assets and start app.
-  setLoadingStatus('献给你爱的TA ❤')
+  setLoadingStatus('<a href="https://oheng.com" target="_blank" style="color: inherit; text-decoration: none; border-bottom: 1px dotted rgba(255,255,255,0.5);">用❤制作 by oheng</a>')
   setTimeout(() => {
     soundManager.preload().then(init, (reason) => {
       // Codepen preview doesn't like to load the audio, so just init to fix the preview for now.
